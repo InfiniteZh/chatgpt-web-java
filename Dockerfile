@@ -17,6 +17,7 @@ EXPOSE 3002
 ENV TZ=Asia/Shanghai
 # 设置容器的时区
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
+RUN apt-get update
+RUN apt-get install -y fontconfig
 # 定义启动命令
 ENTRYPOINT ["sh","-c","java -jar app.jar"]
